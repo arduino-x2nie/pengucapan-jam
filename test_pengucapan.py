@@ -46,3 +46,17 @@ class TestJam(unittest.TestCase):
         self.assertFewEqual(ucapkan(11, 15), [sebelas, seperempat])
         self.assertFewEqual(ucapkan(11, 30), [setengah, dua, belas])
         self.assertFewEqual(ucapkan(11, 45), [dua, belas, kurang, seperempat])
+
+    def test_lebih(self):
+        self.assertFewEqual(ucapkan(1, 5), [satu, lebih, lima])
+        self.assertFewEqual(ucapkan(1, 10), [satu, lebih, sepuluh])
+        self.assertFewEqual(ucapkan(11, 20), [sebelas, lebih, dua, puluh])
+        self.assertFewEqual(
+            ucapkan(12, 25), [dua, belas, lebih, dua, puluh, lima])
+        # self.assertFewEqual(ucapkan(11, 45), [dua, belas, kurang, seperempat])
+
+    def test_kurang(self):
+        self.assertFewEqual(ucapkan(10, 55), [sebelas, kurang, lima])
+        self.assertFewEqual(ucapkan(1, 50), [dua, kurang, sepuluh])
+        self.assertFewEqual(ucapkan(11, 40), [dua, belas, kurang, dua, puluh])
+        self.assertFewEqual(ucapkan(11, 45), [dua, belas, kurang, seperempat])

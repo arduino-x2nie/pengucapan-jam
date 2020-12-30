@@ -89,13 +89,19 @@ def ucapkan(h, m):
     elif m in mid(15):
         waktu = [jam, 'seperempat']
     elif m in mid(30):
-        jam = angka.get(h+1)
+        jam = eja(h+1)
         waktu = ['setengah', jam]
     elif m in mid(45):
-        jam = angka.get(h+1)
+        jam = eja(h+1)
         waktu = [jam, 'kurang', 'seperempat']
+    elif m < 30:
+        waktu = [jam, 'lebih', menit]
     else:
-        waktu = [jam, menit]
+        # waktu = [jam, menit]
+        jam = eja(h+1)
+        menit = eja(abs(60-m))
+        waktu = [jam, 'kurang', menit]
+
     return flattened(waktu)
 
 
